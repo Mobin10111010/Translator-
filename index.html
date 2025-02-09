@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>Untitled</title>
+  <link rel="stylesheet" href="./style.css">
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Universal Translator Pro</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link href="styles.css" rel="stylesheet">
+  <!-- Add meta tags for better SEO and sharing -->
+  <meta name="description" content="Professional universal translator with speech recognition and text-to-speech capabilities">
+  <meta name="keywords" content="translator, languages, speech recognition, text to speech">
+  <meta property="og:title" content="Universal Translator Pro">
+  <meta property="og:description" content="Professional universal translator with speech recognition and text-to-speech capabilities">
+  <!-- Add favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌍</text></svg>">
+</head>
+<body>
+  <div class="container">
+    <h1>Universal Translator Pro</h1>
+    
+    <div class="translator-container">
+      <div class="input-section">
+        <div class="language-select-container">
+          <input type="text" id="sourceSearch" class="language-search" placeholder="🔍 Search source language...">
+          <select id="sourceLanguage" aria-label="Source language"></select>
+        </div>
+        <textarea id="sourceText" placeholder="Enter or speak text to translate..."></textarea>
+      </div>
+
+      <button id="swapButton" class="swap-btn" aria-label="Swap languages">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M7.8 13l2.7-2.7-1.4-1.4L4 14l5.1 5.1 1.4-1.4L7.8 15H18v-2H7.8zM16.2 9l-2.7 2.7 1.4 1.4L20 8l-5.1-5.1-1.4 1.4L16.2 7H6v2h10.2z"/>
+        </svg>
+      </button>
+
+      <div class="output-section">
+        <div class="language-select-container">
+          <input type="text" id="targetSearch" class="language-search" placeholder="🔍 Search target language...">
+          <select id="targetLanguage" aria-label="Target language"></select>
+        </div>
+        <textarea id="translatedText" readonly placeholder="Translation will appear here..."></textarea>
+      </div>
+    </div>
+
+    <div class="voice-controls">
+      <h3>Voice Controls</h3>
+      <div class="slider-container">
+        <span class="slider-label">Speed</span>
+        <input type="range" id="voiceSpeed" min="0.5" max="2" step="0.1" value="1">
+        <span class="slider-value" id="speedValue">1x</span>
+      </div>
+      <div class="slider-container">
+        <span class="slider-label">Pitch</span>
+        <input type="range" id="voicePitch" min="0.5" max="2" step="0.1" value="1">
+        <span class="slider-value" id="pitchValue">1x</span>
+      </div>
+    </div>
+
+    <div class="utility-buttons">
+      <button id="copyBtn" class="utility-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path d="M16 1H4c-1.1 0-2 .9-2 2v14h2V3h12V1zm3 4H8c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h11c1.1 0 2-.9 2-2V7c0-1.1-.9-2-2-2zm0 16H8V7h11v14z"/>
+        </svg>
+        Copy Translation
+      </button>
+      <button id="clearBtn" class="utility-btn">
+        <svg viewBox="0 0 24 24" width="18" height="18">
+          <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/>
+        </svg>
+        Clear Text
+      </button>
+    </div>
+
+    <div class="controls">
+      <button id="recordBtn" aria-label="Record speech">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12 14c1.66 0 3-1.34 3-3V5c0-1.66-1.34-3-3-3S9 3.34 9 5v6c0 1.66 1.34 3 3 3zm-1-9c0-.55.45-1 1-1s1 .45 1 1v6c0 .55-.45 1-1 1s-1-.45-1-1V5z"/>
+          <path d="M17 11c0 2.76-2.24 5-5 5s-5-2.24-5-5H5c0 3.53 2.61 6.43 6 6.92V21h2v-3.08c3.39-.49 6-3.39 6-6.92h-2z"/>
+        </svg>
+        Record
+      </button>
+      <div id="permissionRequest" class="permission-request">
+        <p>Please allow microphone access to use speech features</p>
+        <button id="grantPermission">Grant Access</button>
+      </div>
+      <button id="translateBtn">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M12.87 15.07l-2.54-2.51.03-.03A17.52 17.52 0 0014.07 6H17V4h-7V2H8v2H1v2h11.17C11.5 7.92 10.44 9.75 9 11.35 8.07 10.32 7.3 9.19 6.69 8h-2c.73 1.63 1.73 3.17 2.98 4.56l-5.09 5.02L4 19l5-5 3.11 3.11.76-2.04zM18.5 10h-2L12 22h2l1.12-3h4.75L21 22h2l-4.5-12zm-2.62 7l1.62-4.33L19.12 17h-3.24z"/>
+        </svg>
+        Translate
+      </button>
+      <button id="speakBtn" aria-label="Speak translation">
+        <svg viewBox="0 0 24 24" width="24" height="24">
+          <path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3c0-1.8-1-3.3-2.5-4v8c1.5-.7 2.5-2.2 2.5-4zM14 3.2v2.1c2.9.9 5 3.5 5 6.7s-2.1 5.8-5 6.7v2.1c4-.9 7-4.5 7-8.8s-3-7.9-7-8.8z"/>
+        </svg>
+        Speak
+      </button>
+    </div>
+    
+    <!-- History Panel -->
+    <div class="history-toggle" id="historyToggle">
+      <svg viewBox="0 0 24 24" width="24" height="24" fill="white">
+        <path d="M13 3c-4.97 0-9 4.03-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42C8.27 19.99 10.51 21 13 21c4.97 0 9-4.03 9-9s-4.03-9-9-9zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/>
+      </svg>
+    </div>
+
+    <div class="history-panel" id="historyPanel">
+      <h2>Translation History</h2>
+      <div class="history-actions">
+        <button id="clearHistory" class="clear-history">Clear History</button>
+      </div>
+      <div id="historyList" class="history-list"></div>
+    </div>
+  </div>
+  
+  <script src="translator.js" type="module"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
